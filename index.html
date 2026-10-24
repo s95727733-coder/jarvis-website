@@ -187,7 +187,11 @@
       recognition.maxAlternatives = 1;
       recognition.onstart = () => { $("micBtn").textContent = "🎙 Listening…"; };
       recognition.onresult = (event) => { input.value = event.results[0][0].transcript; sendMessage(); };
-      recognition.onerror = () => { $("footerStatus").textContent = "MICROPHONE UNAVAILABLE"; };
+      recognition.onerror = recognition.onerror = (event) => {
+  $("footerStatus").textContent = "MIC ERROR: " + event.error;
+  console.log("Microphone error:", event.error);
+  alert("JARVIS Voice Error: " + event.error);
+};
       recognition.onend = () => { $("micBtn").textContent = "🎙 Voice input"; };
       try { recognition.start(); } catch (_) { $("footerStatus").textContent = "MICROPHONE BUSY"; }
     });
