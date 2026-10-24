@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#06111d">
+  <meta name="description" content="J.A.R.V.I.S. — your futuristic personal AI assistant.">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <title>J.A.R.V.I.S. — Personal AI</title>
+  <style>
+    :root{color-scheme:dark;--cyan:#58f4ff;--blue:#138bb0;--muted:#8aa9ba;--panel:rgba(6,24,39,.78);--line:rgba(88,244,255,.24);--bg:#030a12}
+    *{box-sizing:border-box}html{min-height:100%;scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% 0%,#0b2940 0%,#06111d 42%,#02060b 100%);color:#e9fbff;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.2;background-image:linear-gradient(rgba(88,244,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(88,244,255,.08) 1px,transparent 1px);background-size:36px 36px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+    .wrap{max-width:1200px;margin:auto;padding:22px 18px 34px;position:relative}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;border-bottom:1px solid var(--line);padding:8px 2px 18px}.brand{display:flex;align-items:center;gap:12px}.brand img{width:42px;height:42px;filter:drop-shadow(0 0 10px #00dfff)}.brand strong{letter-spacing:.18em;font-size:16px}.brand small{display:block;color:var(--muted);letter-spacing:.16em;font-size:10px;margin-top:3px}.status{font-size:11px;color:var(--cyan);letter-spacing:.14em;border:1px solid var(--line);padding:9px 12px;border-radius:4px;white-space:nowrap}.status:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:#5dffb1;box-shadow:0 0 8px #5dffb1;margin-right:8px}
+    .hero{text-align:center;padding:26px 0 16px}.eyebrow{color:var(--cyan);font-size:10px;letter-spacing:.3em;text-transform:uppercase}.hero h1{font-size:clamp(28px,5vw,48px);letter-spacing:.09em;margin:10px 0 7px;font-weight:650}.hero p{color:var(--muted);font-size:14px;margin:0}
+    .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,1.15fr) minmax(0,1fr);gap:14px;align-items:stretch}.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;box-shadow:0 0 30px rgba(0,205,255,.04),inset 0 0 24px rgba(0,205,255,.025);overflow:hidden;min-width:0}.panel-head{padding:14px 16px;border-bottom:1px solid var(--line);font-size:10px;color:var(--cyan);letter-spacing:.19em;display:flex;justify-content:space-between;align-items:center}.panel-body{padding:16px}.readout{display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid rgba(88,244,255,.1);font-size:12px}.readout:last-child{border:0}.readout span{color:var(--muted)}.readout b{font-weight:500;color:#e8fcff;text-align:right}.reactor{width:min(100%,225px);aspect-ratio:1;margin:14px auto 20px;position:relative;display:grid;place-items:center}.reactor .ring{position:absolute;border-radius:50%;border:1px solid var(--cyan);box-shadow:0 0 13px rgba(0,225,255,.35),inset 0 0 12px rgba(0,225,255,.12)}.r1{inset:0;border-style:dashed!important;animation:spin 26s linear infinite}.r2{inset:12%;border-width:5px!important;border-left-color:transparent!important;animation:spin 10s linear infinite reverse}.r3{inset:25%;border-width:2px!important}.core{width:38%;height:38%;border-radius:50%;background:radial-gradient(circle,#fff 0%,#b9ffff 12%,#1deaff 42%,#05729d 70%,transparent 73%);filter:drop-shadow(0 0 18px #00eaff);animation:pulse 2.4s ease-in-out infinite}.reactor-label{text-align:center;color:var(--cyan);font-size:10px;letter-spacing:.2em;margin-top:-2px}.meters{display:grid;gap:12px}.meter-title{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:6px}.bar{height:4px;background:#142c3b;border-radius:8px;overflow:hidden}.bar i{display:block;height:100%;width:88%;background:linear-gradient(90deg,#087ba5,var(--cyan));box-shadow:0 0 9px var(--cyan)}.chat{display:flex;flex-direction:column;min-height:490px}.chat-body{padding:14px;display:flex;flex-direction:column;gap:12px;flex:1;min-height:290px;max-height:430px;overflow:auto}.bubble{max-width:94%;padding:12px 13px;border-radius:8px;font-size:13px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}.bubble.bot{align-self:flex-start;border:1px solid rgba(88,244,255,.23);background:rgba(6,37,54,.72)}.bubble.user{align-self:flex-end;border:1px solid rgba(88,244,255,.4);background:rgba(8,85,111,.35)}.bubble .who{display:block;font-size:9px;color:var(--cyan);letter-spacing:.16em;margin-bottom:5px}.quick{display:flex;gap:7px;flex-wrap:wrap;padding:0 14px 12px}.chip,.btn{cursor:pointer;color:var(--cyan);background:rgba(4,30,44,.9);border:1px solid var(--line);border-radius:5px;padding:8px 10px;font-size:11px;transition:.2s}.chip:hover,.btn:hover{border-color:var(--cyan);background:rgba(0,201,238,.12)}.composer{padding:12px;border-top:1px solid var(--line);display:flex;gap:8px}.composer input{min-width:0;flex:1;background:#03101a;color:#e9fbff;border:1px solid var(--line);border-radius:5px;padding:12px;font:inherit;font-size:13px;outline:none}.composer input:focus{border-color:var(--cyan)}.send{background:var(--cyan);color:#00131b;font-weight:800;border:0;border-radius:5px;padding:0 16px;cursor:pointer}.send:disabled{opacity:.5;cursor:wait}.controls{display:flex;gap:7px;flex-wrap:wrap;padding:0 14px 14px}.footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#688797;font-size:10px;letter-spacing:.08em;padding:18px 2px 0}.lang{display:flex;gap:6px}.lang button{background:transparent;border:1px solid var(--line);color:var(--muted);padding:6px 9px;border-radius:4px;cursor:pointer}.lang button.active{color:var(--cyan);border-color:var(--cyan)}.notice{display:none;margin:14px 0 0;padding:12px 14px;border:1px solid rgba(255,199,92,.4);background:rgba(90,58,0,.16);color:#ffd98a;border-radius:6px;font-size:12px;line-height:1.5}.notice.show{display:block}
+    @keyframes spin{to{transform:rotate(360deg)}}@keyframes pulse{0%,100%{opacity:.78;transform:scale(.94)}50%{opacity:1;transform:scale(1.04)}}
+    @media(max-width:900px){.grid{grid-template-columns:1fr 1fr}.chat-panel{grid-column:1/-1;grid-row:1}.chat{min-height:440px}.chat-body{max-height:360px}.hero{padding-top:23px}}@media(max-width:560px){.wrap{padding:12px 10px 24px}.top{align-items:flex-start}.status{font-size:9px;padding:8px}.brand strong{font-size:13px}.grid{grid-template-columns:1fr}.chat-panel{grid-column:auto}.chat{min-height:470px}.panel-body{padding:14px}.hero h1{letter-spacing:.04em}.footer{font-size:9px}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="top">
+      <div class="brand"><img src="/icon.svg" alt=""><div><strong>J.A.R.V.I.S.</strong><small>PERSONAL INTELLIGENCE SYSTEM</small></div></div>
+      <div class="status" id="systemStatus">SYSTEM ONLINE</div>
+    </header>
+    <section class="hero">
+      <div class="eyebrow">Just A Rather Very Intelligent System</div>
+      <h1>GOOD TO SEE YOU.</h1>
+      <p>Your personal AI interface is ready. What can I help you with?</p>
+    </section>
+    <div class="grid">
+      <section class="panel">
+        <div class="panel-head"><span>SYSTEM TELEMETRY</span><span>01 / LIVE</span></div>
+        <div class="panel-body">
+          <div class="readout"><span>LOCAL TIME</span><b id="clock">--:--:--</b></div>
+          <div class="readout"><span>CONNECTION</span><b id="connection">CHECKING</b></div>
+          <div class="readout"><span>ASSISTANT CORE</span><b id="coreStatus">INITIALIZING</b></div>
+          <div class="readout"><span>VOICE SUPPORT</span><b id="voiceStatus">CHECKING</b></div>
+          <div class="readout"><span>LANGUAGE</span><b id="languageReadout">ENGLISH</b></div>
+          <div class="reactor" aria-label="Animated cyan Arc Reactor">
+            <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><div class="core"></div>
+          </div>
+          <div class="reactor-label">ARC REACTOR // STABLE</div>
+        </div>
+      </section>
+      <section class="panel chat-panel">
+        <div class="panel-head"><span>NEURAL INTERFACE</span><div class="lang"><button id="enBtn" class="active">ENG</button><button id="hiBtn">हिंदी</button></div></div>
+        <div class="chat"><div class="chat-body" id="chatBody" aria-live="polite">
+          <div class="bubble bot"><span class="who">J.A.R.V.I.S.</span>Hello. I’m online and ready to assist. Ask me anything.</div>
+        </div>
+          <div class="quick">
+            <button class="chip" data-prompt="Give me a quick briefing for today.">Daily briefing</button>
+            <button class="chip" data-prompt="Explain artificial intelligence in simple terms.">Explain AI</button>
+            <button class="chip" data-prompt="Give me three creative ideas for a personal project.">Ideas</button>
+          </div>
+          <div class="composer"><input id="messageInput" type="text" maxlength="3000" placeholder="Message J.A.R.V.I.S..." autocomplete="off" aria-label="Message JARVIS"><button class="send" id="sendBtn">SEND</button></div>
+          <div class="controls"><button class="btn" id="voiceBtn">🔊 Read replies: ON</button><button class="btn" id="micBtn">🎙 Voice input</button><button class="btn" id="clearBtn">Clear conversation</button></div>
+        </div>
+      </section>
+      <section class="panel">
+        <div class="panel-head"><span>CORE DIAGNOSTICS</span><span>03 / STATUS</span></div>
+        <div class="panel-body">
+          <div class="readout"><span>AI BACKEND</span><b id="backendStatus">CONNECTING</b></div>
+          <div class="readout"><span>SECURE KEY</span><b>SERVER-SIDE</b></div>
+          <div class="readout"><span>CHAT MEMORY</span><b>THIS SESSION</b></div>
+          <div class="readout"><span>PRIVACY MODE</span><b>NO API CACHE</b></div>
+          <div class="meters" style="margin-top:24px">
+            <div><div class="meter-title"><span>CORE POWER</span><span>88%</span></div><div class="bar"><i style="width:88%"></i></div></div>
+            <div><div class="meter-title"><span>NEURAL LINK</span><span id="neuralPct">READY</span></div><div class="bar"><i id="neuralBar" style="width:72%"></i></div></div>
+            <div><div class="meter-title"><span>NETWORK</span><span id="networkPct">--</span></div><div class="bar"><i id="networkBar" style="width:50%"></i></div></div>
+          </div>
+          <div class="notice" id="setupNotice"></div>
+          <div style="margin-top:20px;color:var(--muted);font-size:12px;line-height:1.7">SYSTEM NOTE<br><span style="color:#e1faff">The assistant runs through your configured AI backend. Microphone input requires browser permission and HTTPS (or localhost).</span></div>
+        </div>
+      </section>
+    </div>
+    <footer class="footer"><span>J.A.R.V.I.S. HUD // PERSONAL AI</span><span id="footerStatus">AWAITING INPUT</span><span>CYAN PROTOCOL ENABLED</span></footer>
+  </main>
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const state = { language: localStorage.getItem("jarvis-language") || "en", voice: localStorage.getItem("jarvis-voice") !== "off", busy: false, history: [], personality: "tactical" };
+  const chatBody = $("chatBody");
+  const input = $("messageInput");
+  const sendBtn = $("sendBtn");
+
+  function addMessage(role, text) {
+    const bubble = document.createElement("div");
+    bubble.className = `bubble ${role === "user" ? "user" : "bot"}`;
+    const who = document.createElement("span");
+    who.className = "who";
+    who.textContent = role === "user" ? (state.language === "hi" ? "आप" : "YOU") : "J.A.R.V.I.S.";
+    const content = document.createElement("span");
+    content.textContent = text;
+    bubble.append(who, content);
+    chatBody.appendChild(bubble);
+    chatBody.scrollTop = chatBody.scrollHeight;
+    return bubble;
+  }
+  function setLanguage(lang) {
+    state.language = lang;
+    localStorage.setItem("jarvis-language", lang);
+    $("enBtn").classList.toggle("active", lang === "en");
+    $("hiBtn").classList.toggle("active", lang === "hi");
+    $("languageReadout").textContent = lang === "hi" ? "हिंदी" : "ENGLISH";
+    input.placeholder = lang === "hi" ? "J.A.R.V.I.S. को संदेश दें..." : "Message J.A.R.V.I.S...";
+  }
+  $("enBtn").addEventListener("click", () => setLanguage("en"));
+  $("hiBtn").addEventListener("click", () => setLanguage("hi"));
+  $("voiceBtn").addEventListener("click", () => {
+    state.voice = !state.voice;
+    localStorage.setItem("jarvis-voice", state.voice ? "on" : "off");
+    $("voiceBtn").textContent = state.voice ? "🔊 Read replies: ON" : "🔇 Read replies: OFF";
+    if (!state.voice && "speechSynthesis" in window) speechSynthesis.cancel();
+  });
+  $("clearBtn").addEventListener("click", () => {
+    state.history = [];
+    chatBody.replaceChildren();
+    addMessage("model", state.language === "hi" ? "बातचीत साफ़ कर दी गई है। बताइए, मैं आपकी क्या मदद करूँ?" : "Conversation cleared. What can I help you with?");
+  });
+
+  function speak(text) {
+    if (!state.voice || !("speechSynthesis" in window)) return;
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = state.language === "hi" ? "hi-IN" : "en-US";
+    utterance.rate = 1;
+    speechSynthesis.speak(utterance);
+  }
+
+  async function sendMessage(text = input.value) {
+    text = text.trim();
+    if (!text || state.busy) return;
+    state.busy = true;
+    sendBtn.disabled = true;
+    input.value = "";
+    addMessage("user", text);
+    state.history.push({ role: "user", text });
+    const loading = addMessage("model", state.language === "hi" ? "एक क्षण… विश्लेषण कर रहा हूँ।" : "One moment… processing your request.");
+    $("footerStatus").textContent = "PROCESSING REQUEST";
+    $("coreStatus").textContent = "ACTIVE";
+    $("neuralPct").textContent = "LINKING";
+    $("neuralBar").style.width = "92%";
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: text, language: state.language, personality: state.personality, history: state.history.slice(-12, -1) })
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(data.error || `Request failed (${response.status})`);
+      if (typeof data.reply !== "string" || !data.reply.trim()) throw new Error("Empty response from assistant.");
+      loading.remove();
+      addMessage("model", data.reply);
+      state.history.push({ role: "model", text: data.reply });
+      state.history = state.history.slice(-24);
+      speak(data.reply);
+      $("backendStatus").textContent = "ONLINE";
+      $("footerStatus").textContent = "RESPONSE COMPLETE";
+    } catch (error) {
+      loading.remove();
+      addMessage("model", error.message || "Connection error. Please try again.");
+      $("footerStatus").textContent = "REQUEST FAILED";
+      $("backendStatus").textContent = "CHECK SETUP";
+    } finally {
+      state.busy = false;
+      sendBtn.disabled = false;
+      $("coreStatus").textContent = "STANDBY";
+      $("neuralPct").textContent = "READY";
+      $("neuralBar").style.width = "72%";
+      input.focus();
+    }
+  }
+  sendBtn.addEventListener("click", () => sendMessage());
+  input.addEventListener("keydown", (e) => { if (e.key === "Enter") sendMessage(); });
+  document.querySelectorAll("[data-prompt]").forEach((button) => button.addEventListener("click", () => sendMessage(button.dataset.prompt)));
+
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (SpeechRecognition) {
+    $("voiceStatus").textContent = "AVAILABLE";
+    $("micBtn").addEventListener("click", () => {
+      const recognition = new SpeechRecognition();
+      recognition.lang = state.language === "hi" ? "hi-IN" : "en-US";
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+      recognition.onstart = () => { $("micBtn").textContent = "🎙 Listening…"; };
+      recognition.onresult = (event) => { input.value = event.results[0][0].transcript; sendMessage(); };
+      recognition.onerror = () => { $("footerStatus").textContent = "MICROPHONE UNAVAILABLE"; };
+      recognition.onend = () => { $("micBtn").textContent = "🎙 Voice input"; };
+      try { recognition.start(); } catch (_) { $("footerStatus").textContent = "MICROPHONE BUSY"; }
+    });
+  } else {
+    $("voiceStatus").textContent = "NOT SUPPORTED";
+    $("micBtn").disabled = true;
+    $("micBtn").title = "Voice input is not supported by this browser.";
+  }
+
+  function tick() { $("clock").textContent = new Date().toLocaleTimeString(); }
+  tick(); setInterval(tick, 1000);
+  function network() {
+    const online = navigator.onLine;
+    $("connection").textContent = online ? "CONNECTED" : "OFFLINE";
+    $("networkPct").textContent = online ? "ONLINE" : "OFFLINE";
+    $("networkBar").style.width = online ? "100%" : "8%";
+    $("systemStatus").textContent = online ? "SYSTEM ONLINE" : "OFFLINE MODE";
+  }
+  window.addEventListener("online", network);
+  window.addEventListener("offline", network);
+  network();
+  setLanguage(state.language);
+  $("voiceBtn").textContent = state.voice ? "🔊 Read replies: ON" : "🔇 Read replies: OFF";
+
+  fetch("/api/health").then(r => r.json()).then(data => {
+    if (data.geminiConfigured) {
+      $("backendStatus").textContent = "READY";
+      $("setupNotice").classList.remove("show");
+    } else {
+      $("backendStatus").textContent = "API KEY NEEDED";
+      $("setupNotice").textContent = "Setup required: add your Gemini API key to the server's .env file and restart the website. Your key must never be placed in browser code.";
+      $("setupNotice").classList.add("show");
+    }
+  }).catch(() => {
+    $("backendStatus").textContent = "UNREACHABLE";
+    $("setupNotice").textContent = "The backend could not be reached. Run the website using npm start; do not open index.html directly as a file.";
+    $("setupNotice").classList.add("show");
+  });
+
+  if ("serviceWorker" in navigator && location.protocol !== "file:") {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("/sw.js").catch(() => {});
+    });
+  }
+})();
+</script>
+</body>
+</html>

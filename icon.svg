@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <title>J.A.R.V.I.S. Arc Reactor</title>
+  <defs>
+    <radialGradient id="bg"><stop stop-color="#102c40"/><stop offset="1" stop-color="#02070d"/></radialGradient>
+    <radialGradient id="core"><stop stop-color="#fff"/><stop offset=".3" stop-color="#b8ffff"/><stop offset=".68" stop-color="#00eaff"/><stop offset="1" stop-color="#007baf"/></radialGradient>
+    <filter id="glow" x="-70%" y="-70%" width="240%" height="240%"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="512" height="512" rx="108" fill="url(#bg)"/>
+  <g fill="none" stroke="#32eaff">
+    <circle cx="256" cy="235" r="174" stroke-width="5" opacity=".65"/>
+    <circle cx="256" cy="235" r="150" stroke-width="12"/>
+    <circle cx="256" cy="235" r="119" stroke-width="4" opacity=".7"/>
+  </g>
+  <g stroke="#8effff" stroke-width="10" stroke-linecap="round">
+    <path d="M256 48v34M256 388v34M69 235h34M409 235h34M124 103l24 24M364 343l24 24M388 103l-24 24M148 343l-24 24"/>
+  </g>
+  <g filter="url(#glow)">
+    <path d="M256 135 333 180 333 270 256 315 179 270 179 180Z" fill="#06243a" stroke="#00eaff" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M256 162 307 192 307 258 256 288 205 258 205 192Z" fill="url(#core)" stroke="#b8ffff" stroke-width="4" stroke-linejoin="round"/>
+    <circle cx="256" cy="225" r="20" fill="#fff"/>
+  </g>
+  <path d="M160 354h192" stroke="#00eaff" stroke-width="4" stroke-linecap="round"/>
+  <text x="256" y="390" fill="#b8ffff" text-anchor="middle" font-family="Arial,sans-serif" font-size="29" font-weight="700" letter-spacing="4">J.A.R.V.I.S.</text>
+  <text x="256" y="418" fill="#00bcd4" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="600" letter-spacing="4">AI SYSTEM</text>
+</svg>

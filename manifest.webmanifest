@@ -1,0 +1,22 @@
+{
+  "id": "/",
+  "name": "J.A.R.V.I.S. - Personal AI Assistant",
+  "short_name": "J.A.R.V.I.S.",
+  "description": "A futuristic personal AI assistant with a cyan Arc Reactor HUD.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#06111d",
+  "background_color": "#030a12",
+  "lang": "en",
+  "categories": ["productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
