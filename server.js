@@ -14,7 +14,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 app.disable("x-powered-by");
 app.use(express.json({ limit: "32kb" }));
-app.use(express.static(path.join(__dirname, "public"), {
+app.use(express.static(__dirname, {
   extensions: ["html"],
   setHeaders(res, filePath) {
     if (filePath.endsWith("sw.js")) {
